@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
+
+:root {
+  --main-color: #ffffff;
+  --text-color: #000000;
+  --highlight-color: #2727e6;
+}
+
+body.dark-mode {
+  --main-color: #000000;
+  --text-color: #ffffff;
+  --highlight-color: #ff4141;
+}
+
+body {
+  font-family: Inter;
+  font-size: 24px;
+  line-height: 40px;
+  color: var(--text-color);
+  background-color: var(--main-color);
+}
+
+section {
+  background-image: url(./assets/grid.svg);
+  background-position: center center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+h1 {
+  position: fixed;
+  top: 32px;
+  left: 32px;
+}
+
+h1 rect {
+  fill: var(--highlight-color);
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--highlight-color);
+}
+
+a.dark-mode-toggle {
+  position: fixed;
+  bottom: 32px;
+  left: 32px;
+}
+
+a.dark-mode-toggle circle {
+  fill: currentColor;
+}
+
+a.dark-mode-toggle rect {
+  stroke: currentColor;
+}
+
+a.menu-toggle {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  z-index: 1;
+}
+
+a.menu-toggle rect {
+  fill: currentColor;
+}
+
+nav {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  max-width: 600px;
+  background-color: var(--main-color);
+  padding: 48px;
+  transform: translate(100%, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.5s 0s;
+}
+
+nav div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+nav div.internal {
+  flex: 1;
+  font-size: 48px;
+  line-height: 64px;
+}
+
+nav.fake-mid {
+  background-color: var(--highlight-color);
+  transition-delay: 0.1s;
+}
+
+nav.fake-back {
+  background-color: var(--text-color);
+  transition-delay: 0.2s;
+}
+
+body.nav-open nav {
+  transform: translate(0, 0);
+  transition-delay: 0.2s;
+}
+
+body.nav-open nav.fake-mid {
+  transform: translate(0, 0);
+  transition-delay: 0.1s;
+}
+
+body.nav-open nav.fake-back {
+  transform: translate(0, 0);
+  transition-delay: 0s;
+}
+
+svg {
+  vertical-align: middle;
+}
+
+a.dark-mode-toggle g.toggle circle {
+  transition: transform 0.5s;
+}
+a.dark-mode-toggle:hover g.toggle circle {
+  transform: scale(1.75);
+}
+
+div.wipe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: var(--highlight-color);
+  z-index: 2;
+  transition: background-color 0.001s 2s;
+}
+
+svg.spiral {
+  border: 2px solid var(--highlight-color);
+}
+
+svg.spiral rect {
+  stroke: var(--highlight-color);
+  fill: var(--highlight-color);
+  fill-opacity: 0;
+}
+
+svg.spiral rect:hover {
+  fill-opacity: 0.25;
+}
